@@ -3,16 +3,31 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, CallbackQueryHandler, ContextTypes, filters
 from gtu_scraper import download_paper
 
-# Sample options (can be extended)
-courses = ["ME", "BE", "DI"]
-sessions = ["W2024", "S2024", "W2023", "S2023"]
+# Full session list
+sessions = [
+    "W2024", "W2023", "W2022", "W2021", "W2020", "W2018", "W2017",
+    "S2025", "S2024", "S2023", "S2022", "S2021", "S2020", "S2019", "S2018"
+]
+
+# Full course list
+courses = [
+    "AF", "RA", "BB", "RC", "BD", "RF", "BESP", "RH", "BI", "RI", "BIM", "RN", "BP", "RBSP",
+    "BS", "RT", "BV", "CI", "CS", "DA", "DB", "DH", "DI", "DISP", "DM", "DP", "DS", "DV",
+    "EP", "FD", "HM", "IB", "IC", "IM", "MA", "MB", "MC", "MCSP", "MD", "ME", "MH", "MI",
+    "MN", "MP", "MR", "MS", "MT", "MV", "PB", "PD", "PH", "PM", "PP", "PR", "TE", "VP"
+]
+
 user_state = {}
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    keyboard = [[InlineKeyboardButton(c, callback_data=f"course|{c}")] for c in courses]
-    await update.message.reply_text("📘 Please select your course:", reply_markup=InlineKeyboardMarkup(keyboard))
     user_state[user_id] = {}
+
+    keyboard = [[InlineKeyboardButton(c, callback_data=f"course|{c}")] for c in courses[:10]]
+    await update.message.reply_text("📘 Please select your course (first 10 shown):", reply_markup=InlineKeyboardMarkup(keyboard))
+
+    # Save pagination index
+    user_state[user_id]["course_index"] = 0
 
 async def handle_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
