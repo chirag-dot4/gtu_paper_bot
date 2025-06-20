@@ -3,7 +3,7 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 from ranker_scraper import get_courses, get_next_level, get_pdf
 
-TOKEN = "API"
+TOKEN = "7626521305:AAHLqkZFz1cCtSxOT61MSF5ejA230twEDSM"
 
 logging.basicConfig(level=logging.INFO)
 user_state = {}
