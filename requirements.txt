@@ -1,5 +1,5 @@
 setuptools
 python-telegram-bot==22.1
 selenium
-undetected-chromedriver.v2
+undetected-chromedriver==3.5.5
 requests
