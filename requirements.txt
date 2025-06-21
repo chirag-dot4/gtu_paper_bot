@@ -1,4 +1,4 @@
-setuptoolsq
+setuptools
 python-telegram-bot==22.1
 selenium
 requests
