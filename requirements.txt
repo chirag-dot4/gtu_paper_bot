@@ -1,0 +1,4 @@
+setuptools
+python-telegram-bot==20.8
+selenium
+requests
