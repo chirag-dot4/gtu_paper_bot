@@ -3,7 +3,7 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, ContextTypes, filters
 from gtu_scraper import fetch_pdf
 
-TOKEN = "YOUR_BOT_TOKEN_HERE"
+TOKEN = "7626521305:AAHLqkZFz1cCtSxOT61MSF5ejA230twEDSM"
 
 COURSES = ['AF', 'RA', 'BB', 'RC', 'BD', 'RE', 'BESP', 'RH', 'BI', 'RI', 'BIM', 'RN', 'BP', 'RBSP', 'BS', 'BT', 'BV', 'CI', 'CS', 'DA', 'DB', 'DH', 'DI', 'DISP', 'DM', 'DP', 'DS', 'DV', 'EP', 'FD', 'HM', 'IB', 'IC', 'IM', 'MA', 'MB', 'MC', 'MCSP', 'MD', 'ME', 'MH', 'MI', 'MN', 'MP', 'MR', 'MS', 'MT', 'MV', 'PB', 'PD', 'PH', 'PM', 'PP', 'PR', 'TE', 'VP']
 SESSIONS = ['W2024', 'W2023', 'W2022', 'W2021', 'W2020', 'W2018', 'W2017', 'S2025', 'S2024', 'S2023', 'S2022', 'S2021', 'S2020', 'S2019', 'S2018']
